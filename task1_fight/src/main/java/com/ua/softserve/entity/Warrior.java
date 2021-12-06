@@ -6,7 +6,7 @@ public class Warrior {
     private int health = 50;
 
     public boolean isAlive() {
-        return health > 0;
+        return getHealth() > 0;
     }
 
     public int getAttack() {
@@ -19,5 +19,13 @@ public class Warrior {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public void setDamage(Warrior warrior) {
+        setHealth(getHealth() - warrior.getAttack());
+    }
+
+    public void attack(Warrior warrior) {
+        warrior.setDamage(this);
     }
 }
