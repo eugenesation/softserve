@@ -1,9 +1,17 @@
 package com.ua.softserve.entity;
 
 public class Warrior {
-
     private static int attack = 5;
     private int health = 50;
+
+    public static Warrior of(String clazz) {
+        return switch (clazz) {
+            case "Warrior" -> new Warrior();
+            case "Knight" -> new Knight();
+            case "Defender" -> new Defender();
+            default -> throw new IllegalArgumentException("Unknown Warrior type: " + clazz);
+        };
+    }
 
     public boolean isAlive() {
         return getHealth() > 0;
