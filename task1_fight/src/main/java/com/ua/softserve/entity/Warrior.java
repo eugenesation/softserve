@@ -1,7 +1,7 @@
 package com.ua.softserve.entity;
 
 public class Warrior {
-    private static int attack = 5;
+    private static final int ATTACK = 5;
     private int health = 50;
 
     public static Warrior of(String clazz) {
@@ -9,6 +9,7 @@ public class Warrior {
             case "Warrior" -> new Warrior();
             case "Knight" -> new Knight();
             case "Defender" -> new Defender();
+            case "Vampire" -> new Vampire();
             default -> throw new IllegalArgumentException("Unknown Warrior type: " + clazz);
         };
     }
@@ -18,22 +19,23 @@ public class Warrior {
     }
 
     public int getAttack() {
-        return attack;
+        return ATTACK;
     }
 
     public int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    protected void setHealth(int health) {
         this.health = health;
     }
 
-    public void setDamage(Warrior warrior) {
+    public int getDamage(Warrior warrior) {
         setHealth(getHealth() - warrior.getAttack());
+        return getHealth();
     }
 
     public void attack(Warrior warrior) {
-        warrior.setDamage(this);
+        warrior.getDamage(this);
     }
 }

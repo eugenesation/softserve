@@ -1,31 +1,25 @@
 package com.ua.softserve.entity;
 
 public class Defender extends Warrior {
-    private int health = 60;
-    private static int attack = 3;
-    private static int defence = 2;
+    private static final int ATTACK = 3;
+    private static final int DEFENCE = 2;
 
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int health) {
-        this.health = health;
+    public Defender() {
+        setHealth(60);
     }
 
     @Override
     public int getAttack() {
-        return attack;
+        return ATTACK;
     }
 
     public static int getDefence() {
-        return defence;
+        return DEFENCE;
     }
 
     @Override
-    public void setDamage(Warrior warrior) {
+    public int getDamage(Warrior warrior) {
         setHealth(getHealth() - warrior.getAttack() + getDefence());
+        return getHealth();
     }
 }

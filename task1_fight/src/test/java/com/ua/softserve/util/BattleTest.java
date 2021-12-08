@@ -1,4 +1,4 @@
-package com.ua.softserve.service;
+package com.ua.softserve.util;
 
 import com.ua.softserve.entity.Knight;
 import com.ua.softserve.entity.Warrior;

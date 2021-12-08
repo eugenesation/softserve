@@ -1,20 +1,13 @@
 package com.ua.softserve;
 
-import com.ua.softserve.entity.Army;
-import com.ua.softserve.entity.Defender;
-import com.ua.softserve.entity.Knight;
-import com.ua.softserve.entity.Warrior;
-import com.ua.softserve.service.Battle;
+import com.ua.softserve.entity.*;
+import com.ua.softserve.util.Battle;
 
 public class Main {
 
     public static void main(String[] args) {
-        var army = new Army()
-                .addUnits("Warrior", 20)
-                .addUnits("Knight", 5);
-        var army2 = new Army()
-                .addUnits("Warrior", 25);
-        var result = Battle.fight(army, army2);
-        System.out.println(result);
+        var defender = new Defender();
+        var vampire = new Vampire();
+        System.out.println(Battle.fight(defender, vampire));
     }
 }
